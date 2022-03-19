@@ -42,7 +42,7 @@ class Metals(Resource):
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata)
             result = cursor.fetchall()
-            print(f"json: {json.dumps(result, default=str)}")
+            return(f"json: {json.dumps(result, default=str)}")
 
     def put(self):
         resp = requests.get(url,timeout=3,headers=headers)

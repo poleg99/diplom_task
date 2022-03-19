@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/metals.css') }}" type="text/css">
+    <title>Metals price data</title>
+</head>
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Buy</th>
+        <th>Sell</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in metals %}
+        <tr>
+          <td>{{ x.dt }}</td>
+          <td>{{ x.buy }}</td>
+          <td>{{ x.sell }}</td>
+          <td>{{ x.name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+</html>
