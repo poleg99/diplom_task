@@ -1,0 +1,34 @@
+<Metall FromDate="20220201" ToDate="20220202" name="Precious metals quotations">
+<Record Date="01.02.2022" Code="1"> - gold
+<Buy>4459,89</Buy>
+<Sell>4459,89</Sell>
+</Record>
+<Record Date="01.02.2022" Code="2"> - silver
+<Buy>56,04</Buy>
+<Sell>56,04</Sell>
+</Record>
+<Record Date="01.02.2022" Code="3"> - platina
+<Buy>2528,08</Buy>
+<Sell>2528,08</Sell>
+</Record>
+<Record Date="01.02.2022" Code="4"> - palladii
+<Buy>6022,57</Buy>
+<Sell>6022,57</Sell>
+</Record>
+<Record Date="02.02.2022" Code="1">
+<Buy>4479,74</Buy>
+<Sell>4479,74</Sell>
+</Record>
+<Record Date="02.02.2022" Code="2">
+<Buy>55,78</Buy>
+<Sell>55,78</Sell>
+</Record>
+<Record Date="02.02.2022" Code="3">
+<Buy>2571,54</Buy>
+<Sell>2571,54</Sell>
+</Record>
+<Record Date="02.02.2022" Code="4">
+<Buy>5914,3</Buy>
+<Sell>5914,3</Sell>
+</Record>
+</Metall>
