@@ -44,8 +44,6 @@ class Metals(Resource):
             result = cursor.fetchall()
             print(f"json: {json.dumps(result, default=str)}")
 
-#            cursor.close()
-#            connection.close()
     def put(self):
         resp = requests.get(url,timeout=3,headers=headers)
 
@@ -66,16 +64,15 @@ class Metals(Resource):
                         if elem.tag == "Sell":
                             sell = elem.text
 
-                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
-
-                cursor = conn.cursor()
-                metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
-                cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
-                conn.commit()
-                print("Data inserted successfully.")
+#                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
+                if conn.is_connected():
+                    cursor = conn.cursor()
+                    metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
+                    cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
+                    conn.commit()
+                    print("Data inserted successfully.")
         else:
             print('Failed to upload xml. Error code=' + str(resp.status_code))
-
 
 api.add_resource(Metals, '/metals')  # add endpoints
 
