@@ -35,6 +35,10 @@ headers = {'User-Agent': 'Mozilla',
            'Content-Type': 'application/xml; charset=windows-1251',
            'content-Encoding': 'gzip'}
 
+class Ping(Resource):
+    def get(self):
+        return(jsonify("pong"))
+
 class Metals(Resource):
     def get(self):
         if conn.is_connected():
@@ -75,6 +79,7 @@ class Metals(Resource):
             print('Failed to upload xml. Error code=' + str(resp.status_code))
 
 api.add_resource(Metals, '/metals')  # add endpoints
+api.add_resource(Ping, '/ping')  # add endpoints
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000)
