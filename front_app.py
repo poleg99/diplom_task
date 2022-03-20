@@ -41,8 +41,7 @@ def getdata_back():
 @app.route('/update', methods=['GET','POST'])
 def update_data():
     response = requests.post(url_back_update, timeout=10)
-
-    return
+    return render_template('index.html',title='Metals Table Data', data=response.content)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3000)
