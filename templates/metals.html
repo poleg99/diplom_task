@@ -1,14 +1,14 @@
 {% extends "index.html" %}
 {% block content %}
 <table>
-<tr>{% for field  in fields %}<td>{{ field }}</td>{% endfor %}</tr>
-{% for item  in data %}
-<tr>
-{% for field  in fields %}
-<td>{{ item[field] }}</td>
-{% endfor %}
-</tr>
-{% endfor %}
+  {%- for item in data -%}
+  <tr>
+      <td>{{ item[0] }}</td>
+      <td>{{ item[1] }}</td>
+      <td>{{ item[2] }}</td>
+      <td>{{ item[3] }}</td>
+  </tr>
+  {%- endfor -%}
 </table>
 {% endblock %}
 </html>

@@ -69,15 +69,10 @@ class Update(Resource):
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                     cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
                     conn.commit()
-            response = make_response(
-               jsonify({"message": "Data was uploaded to Database"}, 200))
-            response.headers["Content-Type"] = "application/json"
-            return response
+            cursor.close
+            return("Data was uploaded to Database")
         else:
-            response = make_response(
-                jsonify({"message": "Failed to upload xml to DATABASE. Error code="+ str(resp.status_code)}, 500))
-            response.headers["Content-Type"] = "application/json"
-            return response
+            return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
 
 class Metals(Resource):
     def get(self):
@@ -86,6 +81,8 @@ class Metals(Resource):
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata)
             result = cursor.fetchall()
+            cursor.close
+#            return(result)
             return(json.dumps(result, default=str))
 #            return(f"json: {json.dumps(result, default=str)}")
 
