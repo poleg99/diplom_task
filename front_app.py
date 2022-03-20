@@ -30,14 +30,17 @@ def index():
 def getdata_back():
     response = requests.get(url_back_get, timeout=3)
     if response.status_code == requests.codes.ok:
-      jresponse = response.text
+      jresponse = response.content
       data = json.loads(jresponse)
-
-      return render_template('index.html',title='Metals Table Data', data=data)
+      print(data)
+      fields = data[0].keys() if len(data) > 0 else []
+      return render_template('metals.html',title='Metals Table Data', data=data, fields=fields)
+#      data = json.loads(jresponse)
+#
+#      return render_template('metals.html',title='Metals Table Data', data=data)
     else:
       response = make_response(
                     jsonify({"message": "Failed to get data from backend. Error code ="+ str(response.status_code)}, 500))
-      response.headers["Content-Type"] = 'application/json;charset=UTF-8'
       return response
 
 @app.route('/update', methods=['GET','POST'])
