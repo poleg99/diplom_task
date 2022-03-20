@@ -31,8 +31,15 @@ def getdata_back():
     jresponse = response.text
     data = json.loads(jresponse)
 
-    return render_template('metals.html',data=data)
-#    return render_template('metals.html', title='Metals Table',metals=response)
+    return render_template('metals.html',title='Metals Table Data', data=data)
+
+@app.route('/update', methods=['POST'])
+def update_data():
+    response = requests.get("http://localhost:8000/update")
+    jresponse = response.text
+    data = json.loads(jresponse)
+
+    return data
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3000)

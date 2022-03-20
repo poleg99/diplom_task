@@ -2,10 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href= "{{ url_for('static',filename='styles/metals.css') }}" type="text/css">
-    <title>Metals price data</title>
+    <title>{{ title }}</title>
 </head>
 {% block content %}
-  {{data}}
+  {{ data }}
   <table id="data" class="table table-striped">
     <thead
       <tr>

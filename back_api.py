@@ -23,7 +23,7 @@ if conn:
 else:
     print ("Connection Not Established")
 
-#url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/08/2001&date_req2=13/08/2001"
+#url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
 # as CBR add captcha for it's site, I created CBR emulator
 url = "http://cbr.example.com/metals.xml"
 
@@ -45,16 +45,8 @@ class Ping(Resource):
       response.headers["Content-Type"] = "application/json"
       return response
 
-class Metals(Resource):
-    def get(self):
-        if conn.is_connected():
-            metalsdata = "SELECT * from metalsdb.metalls_v"
-            cursor = conn.cursor(dictionary=True)
-            cursor.execute(metalsdata)
-            result = cursor.fetchall()
-            return(f"json: {json.dumps(result, default=str)}")
-
-    def put(self):
+class Update(Resource):
+    def post(self):
         resp = requests.get(url,timeout=3,headers=headers)
 
         if resp.status_code == requests.codes.ok:
@@ -74,21 +66,34 @@ class Metals(Resource):
                         if elem.tag == "Sell":
                             sell = elem.text
 
-#                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
+                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
                 if conn.is_connected():
                     cursor = conn.cursor()
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                     cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
                     conn.commit()
-                    return(jsonify("Data inserted successfully"))
+            response = make_response(
+               jsonify({"message": "Data was uploaded to Database"}, 200))
+            response.headers["Content-Type"] = "application/json"
+            return response
         else:
             response = make_response(
                 jsonify({"message": "Failed to upload xml to DATABASE. Error code="+ str(resp.status_code)}, 500))
             response.headers["Content-Type"] = "application/json"
             return response
 #            return(jsonify("Failed to upload xml. Error code="+ str(resp.status_code)))
+class Metals(Resource):
+    def get(self):
+        if conn.is_connected():
+            metalsdata = "SELECT * from metalsdb.metalls_v"
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute(metalsdata)
+            result = cursor.fetchall()
+            return(f"json: {json.dumps(result, default=str)}")
+
 
 api.add_resource(Metals, '/metals')  # add endpoints
+api.add_resource(Update, '/update')  # add endpoints
 api.add_resource(Ping, '/ping')  # add endpoints
 
 if __name__ == '__main__':
