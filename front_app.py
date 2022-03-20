@@ -19,10 +19,7 @@ def not_found(error):
 
 @app.route('/ping')
 def ping():
-    response = make_response(
-            jsonify({"message": "pong"}, 200))
-    response.headers["Content-Type"] = "application/json"
-    return response
+    return render_template('index.html',title='Metals Table Data', data="pong")
 
 @app.route('/')
 def index():

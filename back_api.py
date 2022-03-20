@@ -40,10 +40,7 @@ def not_found(error):
 
 class Ping(Resource):
     def get(self):
-      response = make_response(
-            jsonify({"message": "pong"}, 200))
-      response.headers["Content-Type"] = "application/json"
-      return response
+        return 'pong'
 
 class Update(Resource):
     def get(self):
