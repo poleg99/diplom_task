@@ -1,17 +1,257 @@
-<Metall FromDate="20220201" ToDate="20220202" name="Precious metals quotations">
-<Record Date="01.02.2022" Code="1"> - gold
+<Metall FromDate="20220101" ToDate="20220320" name="Precious metals quotations">
+<Record Date="11.01.2022" Code="1">
+<Buy>4349,29</Buy>
+<Sell>4349,29</Sell>
+</Record>
+<Record Date="11.01.2022" Code="2">
+<Buy>53,72</Buy>
+<Sell>53,72</Sell>
+</Record>
+<Record Date="11.01.2022" Code="3">
+<Buy>2321,33</Buy>
+<Sell>2321,33</Sell>
+</Record>
+<Record Date="11.01.2022" Code="4">
+<Buy>4681,3</Buy>
+<Sell>4681,3</Sell>
+</Record>
+<Record Date="12.01.2022" Code="1">
+<Buy>4343,34</Buy>
+<Sell>4343,34</Sell>
+</Record>
+<Record Date="12.01.2022" Code="2">
+<Buy>54,03</Buy>
+<Sell>54,03</Sell>
+</Record>
+<Record Date="12.01.2022" Code="3">
+<Buy>2273,68</Buy>
+<Sell>2273,68</Sell>
+</Record>
+<Record Date="12.01.2022" Code="4">
+<Buy>4607,52</Buy>
+<Sell>4607,52</Sell>
+</Record>
+<Record Date="13.01.2022" Code="1">
+<Buy>4352,31</Buy>
+<Sell>4352,31</Sell>
+</Record>
+<Record Date="13.01.2022" Code="2">
+<Buy>54,13</Buy>
+<Sell>54,13</Sell>
+</Record>
+<Record Date="13.01.2022" Code="3">
+<Buy>2331,42</Buy>
+<Sell>2331,42</Sell>
+</Record>
+<Record Date="13.01.2022" Code="4">
+<Buy>4583,78</Buy>
+<Sell>4583,78</Sell>
+</Record>
+<Record Date="14.01.2022" Code="1">
+<Buy>4369,08</Buy>
+<Sell>4369,08</Sell>
+</Record>
+<Record Date="14.01.2022" Code="2">
+<Buy>54,53</Buy>
+<Sell>54,53</Sell>
+</Record>
+<Record Date="14.01.2022" Code="3">
+<Buy>2330,31</Buy>
+<Sell>2330,31</Sell>
+</Record>
+<Record Date="14.01.2022" Code="4">
+<Buy>4526,36</Buy>
+<Sell>4526,36</Sell>
+</Record>
+<Record Date="15.01.2022" Code="1">
+<Buy>4438,92</Buy>
+<Sell>4438,92</Sell>
+</Record>
+<Record Date="15.01.2022" Code="2">
+<Buy>56,62</Buy>
+<Sell>56,62</Sell>
+</Record>
+<Record Date="15.01.2022" Code="3">
+<Buy>2384,8</Buy>
+<Sell>2384,8</Sell>
+</Record>
+<Record Date="15.01.2022" Code="4">
+<Buy>4586,91</Buy>
+<Sell>4586,91</Sell>
+</Record>
+<Record Date="18.01.2022" Code="1">
+<Buy>4449,57</Buy>
+<Sell>4449,57</Sell>
+</Record>
+<Record Date="18.01.2022" Code="2">
+<Buy>56,47</Buy>
+<Sell>56,47</Sell>
+</Record>
+<Record Date="18.01.2022" Code="3">
+<Buy>2373,86</Buy>
+<Sell>2373,86</Sell>
+</Record>
+<Record Date="18.01.2022" Code="4">
+<Buy>4620,58</Buy>
+<Sell>4620,58</Sell>
+</Record>
+<Record Date="19.01.2022" Code="1">
+<Buy>4444,09</Buy>
+<Sell>4444,09</Sell>
+</Record>
+<Record Date="19.01.2022" Code="2">
+<Buy>56,48</Buy>
+<Sell>56,48</Sell>
+</Record>
+<Record Date="19.01.2022" Code="3">
+<Buy>2370,77</Buy>
+<Sell>2370,77</Sell>
+</Record>
+<Record Date="19.01.2022" Code="4">
+<Buy>4609,02</Buy>
+<Sell>4609,02</Sell>
+</Record>
+<Record Date="20.01.2022" Code="1">
+<Buy>4491,8</Buy>
+<Sell>4491,8</Sell>
+</Record>
+<Record Date="20.01.2022" Code="2">
+<Buy>56,63</Buy>
+<Sell>56,63</Sell>
+</Record>
+<Record Date="20.01.2022" Code="3">
+<Buy>2449,17</Buy>
+<Sell>2449,17</Sell>
+</Record>
+<Record Date="20.01.2022" Code="4">
+<Buy>4678,39</Buy>
+<Sell>4678,39</Sell>
+</Record>
+<Record Date="21.01.2022" Code="1">
+<Buy>4513,92</Buy>
+<Sell>4513,92</Sell>
+</Record>
+<Record Date="21.01.2022" Code="2">
+<Buy>58,43</Buy>
+<Sell>58,43</Sell>
+</Record>
+<Record Date="21.01.2022" Code="3">
+<Buy>2568,22</Buy>
+<Sell>2568,22</Sell>
+</Record>
+<Record Date="21.01.2022" Code="4">
+<Buy>5025,85</Buy>
+<Sell>5025,85</Sell>
+</Record>
+<Record Date="22.01.2022" Code="1">
+<Buy>4522,62</Buy>
+<Sell>4522,62</Sell>
+</Record>
+<Record Date="22.01.2022" Code="2">
+<Buy>59,73</Buy>
+<Sell>59,73</Sell>
+</Record>
+<Record Date="22.01.2022" Code="3">
+<Buy>2579,07</Buy>
+<Sell>2579,07</Sell>
+</Record>
+<Record Date="22.01.2022" Code="4">
+<Buy>5113,76</Buy>
+<Sell>5113,76</Sell>
+</Record>
+<Record Date="25.01.2022" Code="1">
+<Buy>4572,35</Buy>
+<Sell>4572,35</Sell>
+</Record>
+<Record Date="25.01.2022" Code="2">
+<Buy>60,49</Buy>
+<Sell>60,49</Sell>
+</Record>
+<Record Date="25.01.2022" Code="3">
+<Buy>2576,88</Buy>
+<Sell>2576,88</Sell>
+</Record>
+<Record Date="25.01.2022" Code="4">
+<Buy>5233,36</Buy>
+<Sell>5233,36</Sell>
+</Record>
+<Record Date="26.01.2022" Code="1">
+<Buy>4641,26</Buy>
+<Sell>4641,26</Sell>
+</Record>
+<Record Date="26.01.2022" Code="2">
+<Buy>60,85</Buy>
+<Sell>60,85</Sell>
+</Record>
+<Record Date="26.01.2022" Code="3">
+<Buy>2581,5</Buy>
+<Sell>2581,5</Sell>
+</Record>
+<Record Date="26.01.2022" Code="4">
+<Buy>5496,75</Buy>
+<Sell>5496,75</Sell>
+</Record>
+<Record Date="27.01.2022" Code="1">
+<Buy>4683,3</Buy>
+<Sell>4683,3</Sell>
+</Record>
+<Record Date="27.01.2022" Code="2">
+<Buy>60,06</Buy>
+<Sell>60,06</Sell>
+</Record>
+<Record Date="27.01.2022" Code="3">
+<Buy>2659,93</Buy>
+<Sell>2659,93</Sell>
+</Record>
+<Record Date="27.01.2022" Code="4">
+<Buy>5695,49</Buy>
+<Sell>5695,49</Sell>
+</Record>
+<Record Date="28.01.2022" Code="1">
+<Buy>4608,11</Buy>
+<Sell>4608,11</Sell>
+</Record>
+<Record Date="28.01.2022" Code="2">
+<Buy>60,56</Buy>
+<Sell>60,56</Sell>
+</Record>
+<Record Date="28.01.2022" Code="3">
+<Buy>2624,5</Buy>
+<Sell>2624,5</Sell>
+</Record>
+<Record Date="28.01.2022" Code="4">
+<Buy>5995,24</Buy>
+<Sell>5995,24</Sell>
+</Record>
+<Record Date="29.01.2022" Code="1">
+<Buy>4478,88</Buy>
+<Sell>4478,88</Sell>
+</Record>
+<Record Date="29.01.2022" Code="2">
+<Buy>57,97</Buy>
+<Sell>57,97</Sell>
+</Record>
+<Record Date="29.01.2022" Code="3">
+<Buy>2516,9</Buy>
+<Sell>2516,9</Sell>
+</Record>
+<Record Date="29.01.2022" Code="4">
+<Buy>5694,29</Buy>
+<Sell>5694,29</Sell>
+</Record>
+<Record Date="01.02.2022" Code="1">
 <Buy>4459,89</Buy>
 <Sell>4459,89</Sell>
 </Record>
-<Record Date="01.02.2022" Code="2"> - silver
+<Record Date="01.02.2022" Code="2">
 <Buy>56,04</Buy>
 <Sell>56,04</Sell>
 </Record>
-<Record Date="01.02.2022" Code="3"> - platina
+<Record Date="01.02.2022" Code="3">
 <Buy>2528,08</Buy>
 <Sell>2528,08</Sell>
 </Record>
-<Record Date="01.02.2022" Code="4"> - palladii
+<Record Date="01.02.2022" Code="4">
 <Buy>6022,57</Buy>
 <Sell>6022,57</Sell>
 </Record>
@@ -30,5 +270,501 @@
 <Record Date="02.02.2022" Code="4">
 <Buy>5914,3</Buy>
 <Sell>5914,3</Sell>
+</Record>
+<Record Date="03.02.2022" Code="1">
+<Buy>4431,2</Buy>
+<Sell>4431,2</Sell>
+</Record>
+<Record Date="03.02.2022" Code="2">
+<Buy>56,26</Buy>
+<Sell>56,26</Sell>
+</Record>
+<Record Date="03.02.2022" Code="3">
+<Buy>2554,95</Buy>
+<Sell>2554,95</Sell>
+</Record>
+<Record Date="03.02.2022" Code="4">
+<Buy>5842,69</Buy>
+<Sell>5842,69</Sell>
+</Record>
+<Record Date="04.02.2022" Code="1">
+<Buy>4445,08</Buy>
+<Sell>4445,08</Sell>
+</Record>
+<Record Date="04.02.2022" Code="2">
+<Buy>56,14</Buy>
+<Sell>56,14</Sell>
+</Record>
+<Record Date="04.02.2022" Code="3">
+<Buy>2538,29</Buy>
+<Sell>2538,29</Sell>
+</Record>
+<Record Date="04.02.2022" Code="4">
+<Buy>5823,27</Buy>
+<Sell>5823,27</Sell>
+</Record>
+<Record Date="05.02.2022" Code="1">
+<Buy>4436,74</Buy>
+<Sell>4436,74</Sell>
+</Record>
+<Record Date="05.02.2022" Code="2">
+<Buy>54,67</Buy>
+<Sell>54,67</Sell>
+</Record>
+<Record Date="05.02.2022" Code="3">
+<Buy>2513,55</Buy>
+<Sell>2513,55</Sell>
+</Record>
+<Record Date="05.02.2022" Code="4">
+<Buy>5723,96</Buy>
+<Sell>5723,96</Sell>
+</Record>
+<Record Date="08.02.2022" Code="1">
+<Buy>4406,86</Buy>
+<Sell>4406,86</Sell>
+</Record>
+<Record Date="08.02.2022" Code="2">
+<Buy>54,76</Buy>
+<Sell>54,76</Sell>
+</Record>
+<Record Date="08.02.2022" Code="3">
+<Buy>2467,25</Buy>
+<Sell>2467,25</Sell>
+</Record>
+<Record Date="08.02.2022" Code="4">
+<Buy>5469,8</Buy>
+<Sell>5469,8</Sell>
+</Record>
+<Record Date="09.02.2022" Code="1">
+<Buy>4408,79</Buy>
+<Sell>4408,79</Sell>
+</Record>
+<Record Date="09.02.2022" Code="2">
+<Buy>55,35</Buy>
+<Sell>55,35</Sell>
+</Record>
+<Record Date="09.02.2022" Code="3">
+<Buy>2450,14</Buy>
+<Sell>2450,14</Sell>
+</Record>
+<Record Date="09.02.2022" Code="4">
+<Buy>5420,81</Buy>
+<Sell>5420,81</Sell>
+</Record>
+<Record Date="10.02.2022" Code="1">
+<Buy>4396,44</Buy>
+<Sell>4396,44</Sell>
+</Record>
+<Record Date="10.02.2022" Code="2">
+<Buy>54,98</Buy>
+<Sell>54,98</Sell>
+</Record>
+<Record Date="10.02.2022" Code="3">
+<Buy>2491,5</Buy>
+<Sell>2491,5</Sell>
+</Record>
+<Record Date="10.02.2022" Code="4">
+<Buy>5406,27</Buy>
+<Sell>5406,27</Sell>
+</Record>
+<Record Date="11.02.2022" Code="1">
+<Buy>4401,98</Buy>
+<Sell>4401,98</Sell>
+</Record>
+<Record Date="11.02.2022" Code="2">
+<Buy>55,86</Buy>
+<Sell>55,86</Sell>
+</Record>
+<Record Date="11.02.2022" Code="3">
+<Buy>2469,7</Buy>
+<Sell>2469,7</Sell>
+</Record>
+<Record Date="11.02.2022" Code="4">
+<Buy>5501,57</Buy>
+<Sell>5501,57</Sell>
+</Record>
+<Record Date="12.02.2022" Code="1">
+<Buy>4402,86</Buy>
+<Sell>4402,86</Sell>
+</Record>
+<Record Date="12.02.2022" Code="2">
+<Buy>56,31</Buy>
+<Sell>56,31</Sell>
+</Record>
+<Record Date="12.02.2022" Code="3">
+<Buy>2480,79</Buy>
+<Sell>2480,79</Sell>
+</Record>
+<Record Date="12.02.2022" Code="4">
+<Buy>5402,77</Buy>
+<Sell>5402,77</Sell>
+</Record>
+<Record Date="15.02.2022" Code="1">
+<Buy>4568,94</Buy>
+<Sell>4568,94</Sell>
+</Record>
+<Record Date="15.02.2022" Code="2">
+<Buy>56,37</Buy>
+<Sell>56,37</Sell>
+</Record>
+<Record Date="15.02.2022" Code="3">
+<Buy>2528,45</Buy>
+<Sell>2528,45</Sell>
+</Record>
+<Record Date="15.02.2022" Code="4">
+<Buy>5682,25</Buy>
+<Sell>5682,25</Sell>
+</Record>
+<Record Date="16.02.2022" Code="1">
+<Buy>4542,75</Buy>
+<Sell>4542,75</Sell>
+</Record>
+<Record Date="16.02.2022" Code="2">
+<Buy>58,01</Buy>
+<Sell>58,01</Sell>
+</Record>
+<Record Date="16.02.2022" Code="3">
+<Buy>2505,11</Buy>
+<Sell>2505,11</Sell>
+</Record>
+<Record Date="16.02.2022" Code="4">
+<Buy>5593,04</Buy>
+<Sell>5593,04</Sell>
+</Record>
+<Record Date="17.02.2022" Code="1">
+<Buy>4472,36</Buy>
+<Sell>4472,36</Sell>
+</Record>
+<Record Date="17.02.2022" Code="2">
+<Buy>56,16</Buy>
+<Sell>56,16</Sell>
+</Record>
+<Record Date="17.02.2022" Code="3">
+<Buy>2488,93</Buy>
+<Sell>2488,93</Sell>
+</Record>
+<Record Date="17.02.2022" Code="4">
+<Buy>5484,34</Buy>
+<Sell>5484,34</Sell>
+</Record>
+<Record Date="18.02.2022" Code="1">
+<Buy>4594,7</Buy>
+<Sell>4594,7</Sell>
+</Record>
+<Record Date="18.02.2022" Code="2">
+<Buy>57,23</Buy>
+<Sell>57,23</Sell>
+</Record>
+<Record Date="18.02.2022" Code="3">
+<Buy>2635,22</Buy>
+<Sell>2635,22</Sell>
+</Record>
+<Record Date="18.02.2022" Code="4">
+<Buy>5645,5</Buy>
+<Sell>5645,5</Sell>
+</Record>
+<Record Date="19.02.2022" Code="1">
+<Buy>4596,23</Buy>
+<Sell>4596,23</Sell>
+</Record>
+<Record Date="19.02.2022" Code="2">
+<Buy>57,45</Buy>
+<Sell>57,45</Sell>
+</Record>
+<Record Date="19.02.2022" Code="3">
+<Buy>2659,89</Buy>
+<Sell>2659,89</Sell>
+</Record>
+<Record Date="19.02.2022" Code="4">
+<Buy>5641,31</Buy>
+<Sell>5641,31</Sell>
+</Record>
+<Record Date="22.02.2022" Code="1">
+<Buy>4678,19</Buy>
+<Sell>4678,19</Sell>
+</Record>
+<Record Date="22.02.2022" Code="2">
+<Buy>58,67</Buy>
+<Sell>58,67</Sell>
+</Record>
+<Record Date="22.02.2022" Code="3">
+<Buy>2665,57</Buy>
+<Sell>2665,57</Sell>
+</Record>
+<Record Date="22.02.2022" Code="4">
+<Buy>5824,76</Buy>
+<Sell>5824,76</Sell>
+</Record>
+<Record Date="23.02.2022" Code="1">
+<Buy>4899,6</Buy>
+<Sell>4899,6</Sell>
+</Record>
+<Record Date="23.02.2022" Code="2">
+<Buy>61,37</Buy>
+<Sell>61,37</Sell>
+</Record>
+<Record Date="23.02.2022" Code="3">
+<Buy>2800,14</Buy>
+<Sell>2800,14</Sell>
+</Record>
+<Record Date="23.02.2022" Code="4">
+<Buy>6151</Buy>
+<Sell>6151</Sell>
+</Record>
+<Record Date="25.02.2022" Code="1">
+<Buy>5501,19</Buy>
+<Sell>5501,19</Sell>
+</Record>
+<Record Date="25.02.2022" Code="2">
+<Buy>67,37</Buy>
+<Sell>67,37</Sell>
+</Record>
+<Record Date="25.02.2022" Code="3">
+<Buy>3127,41</Buy>
+<Sell>3127,41</Sell>
+</Record>
+<Record Date="25.02.2022" Code="4">
+<Buy>7322,44</Buy>
+<Sell>7322,44</Sell>
+</Record>
+<Record Date="26.02.2022" Code="1">
+<Buy>5136,31</Buy>
+<Sell>5136,31</Sell>
+</Record>
+<Record Date="26.02.2022" Code="2">
+<Buy>68</Buy>
+<Sell>68</Sell>
+</Record>
+<Record Date="26.02.2022" Code="3">
+<Buy>2833,88</Buy>
+<Sell>2833,88</Sell>
+</Record>
+<Record Date="26.02.2022" Code="4">
+<Buy>6634,78</Buy>
+<Sell>6634,78</Sell>
+</Record>
+<Record Date="01.03.2022" Code="1">
+<Buy>5725,1</Buy>
+<Sell>5725,1</Sell>
+</Record>
+<Record Date="01.03.2022" Code="2">
+<Buy>72,82</Buy>
+<Sell>72,82</Sell>
+</Record>
+<Record Date="01.03.2022" Code="3">
+<Buy>3197,49</Buy>
+<Sell>3197,49</Sell>
+</Record>
+<Record Date="01.03.2022" Code="4">
+<Buy>7492,89</Buy>
+<Sell>7492,89</Sell>
+</Record>
+<Record Date="02.03.2022" Code="1">
+<Buy>5664,73</Buy>
+<Sell>5664,73</Sell>
+</Record>
+<Record Date="02.03.2022" Code="2">
+<Buy>71,82</Buy>
+<Sell>71,82</Sell>
+</Record>
+<Record Date="02.03.2022" Code="3">
+<Buy>3123,72</Buy>
+<Sell>3123,72</Sell>
+</Record>
+<Record Date="02.03.2022" Code="4">
+<Buy>7565,96</Buy>
+<Sell>7565,96</Sell>
+</Record>
+<Record Date="03.03.2022" Code="1">
+<Buy>6393,4</Buy>
+<Sell>6393,4</Sell>
+</Record>
+<Record Date="03.03.2022" Code="2">
+<Buy>81,79</Buy>
+<Sell>81,79</Sell>
+</Record>
+<Record Date="03.03.2022" Code="3">
+<Buy>3531,97</Buy>
+<Sell>3531,97</Sell>
+</Record>
+<Record Date="03.03.2022" Code="4">
+<Buy>8800,05</Buy>
+<Sell>8800,05</Sell>
+</Record>
+<Record Date="04.03.2022" Code="1">
+<Buy>6953,99</Buy>
+<Sell>6953,99</Sell>
+</Record>
+<Record Date="04.03.2022" Code="2">
+<Buy>90,1</Buy>
+<Sell>90,1</Sell>
+</Record>
+<Record Date="04.03.2022" Code="3">
+<Buy>3912,83</Buy>
+<Sell>3912,83</Sell>
+</Record>
+<Record Date="04.03.2022" Code="4">
+<Buy>9880,88</Buy>
+<Sell>9880,88</Sell>
+</Record>
+<Record Date="05.03.2022" Code="1">
+<Buy>6612,7</Buy>
+<Sell>6612,7</Sell>
+</Record>
+<Record Date="05.03.2022" Code="2">
+<Buy>86,1</Buy>
+<Sell>86,1</Sell>
+</Record>
+<Record Date="05.03.2022" Code="3">
+<Buy>3694,51</Buy>
+<Sell>3694,51</Sell>
+</Record>
+<Record Date="05.03.2022" Code="4">
+<Buy>9494,83</Buy>
+<Sell>9494,83</Sell>
+</Record>
+<Record Date="06.03.2022" Code="1">
+<Buy>6617,8</Buy>
+<Sell>6617,8</Sell>
+</Record>
+<Record Date="06.03.2022" Code="2">
+<Buy>85,56</Buy>
+<Sell>85,56</Sell>
+</Record>
+<Record Date="06.03.2022" Code="3">
+<Buy>3714,92</Buy>
+<Sell>3714,92</Sell>
+</Record>
+<Record Date="06.03.2022" Code="4">
+<Buy>10086,77</Buy>
+<Sell>10086,77</Sell>
+</Record>
+<Record Date="10.03.2022" Code="1">
+<Buy>7610,16</Buy>
+<Sell>7610,16</Sell>
+</Record>
+<Record Date="10.03.2022" Code="2">
+<Buy>97,49</Buy>
+<Sell>97,49</Sell>
+</Record>
+<Record Date="10.03.2022" Code="3">
+<Buy>4295,77</Buy>
+<Sell>4295,77</Sell>
+</Record>
+<Record Date="10.03.2022" Code="4">
+<Buy>11196,62</Buy>
+<Sell>11196,62</Sell>
+</Record>
+<Record Date="11.03.2022" Code="1">
+<Buy>7731,42</Buy>
+<Sell>7731,42</Sell>
+</Record>
+<Record Date="11.03.2022" Code="2">
+<Buy>101,3</Buy>
+<Sell>101,3</Sell>
+</Record>
+<Record Date="11.03.2022" Code="3">
+<Buy>4164,4</Buy>
+<Sell>4164,4</Sell>
+</Record>
+<Record Date="11.03.2022" Code="4">
+<Buy>11366,94</Buy>
+<Sell>11366,94</Sell>
+</Record>
+<Record Date="12.03.2022" Code="1">
+<Buy>7475,21</Buy>
+<Sell>7475,21</Sell>
+</Record>
+<Record Date="12.03.2022" Code="2">
+<Buy>97,39</Buy>
+<Sell>97,39</Sell>
+</Record>
+<Record Date="12.03.2022" Code="3">
+<Buy>4001,39</Buy>
+<Sell>4001,39</Sell>
+</Record>
+<Record Date="12.03.2022" Code="4">
+<Buy>11103,3</Buy>
+<Sell>11103,3</Sell>
+</Record>
+<Record Date="15.03.2022" Code="1">
+<Buy>7265,07</Buy>
+<Sell>7265,07</Sell>
+</Record>
+<Record Date="15.03.2022" Code="2">
+<Buy>95,02</Buy>
+<Sell>95,02</Sell>
+</Record>
+<Record Date="15.03.2022" Code="3">
+<Buy>3870,31</Buy>
+<Sell>3870,31</Sell>
+</Record>
+<Record Date="15.03.2022" Code="4">
+<Buy>9462,81</Buy>
+<Sell>9462,81</Sell>
+</Record>
+<Record Date="16.03.2022" Code="1">
+<Buy>6913,1</Buy>
+<Sell>6913,1</Sell>
+</Record>
+<Record Date="16.03.2022" Code="2">
+<Buy>90,95</Buy>
+<Sell>90,95</Sell>
+</Record>
+<Record Date="16.03.2022" Code="3">
+<Buy>3655,92</Buy>
+<Sell>3655,92</Sell>
+</Record>
+<Record Date="16.03.2022" Code="4">
+<Buy>8695,36</Buy>
+<Sell>8695,36</Sell>
+</Record>
+<Record Date="17.03.2022" Code="1">
+<Buy>6665,65</Buy>
+<Sell>6665,65</Sell>
+</Record>
+<Record Date="17.03.2022" Code="2">
+<Buy>85,58</Buy>
+<Sell>85,58</Sell>
+</Record>
+<Record Date="17.03.2022" Code="3">
+<Buy>3515,64</Buy>
+<Sell>3515,64</Sell>
+</Record>
+<Record Date="17.03.2022" Code="4">
+<Buy>8667,51</Buy>
+<Sell>8667,51</Sell>
+</Record>
+<Record Date="18.03.2022" Code="1">
+<Buy>6541,42</Buy>
+<Sell>6541,42</Sell>
+</Record>
+<Record Date="18.03.2022" Code="2">
+<Buy>84,05</Buy>
+<Sell>84,05</Sell>
+</Record>
+<Record Date="18.03.2022" Code="3">
+<Buy>3457,04</Buy>
+<Sell>3457,04</Sell>
+</Record>
+<Record Date="18.03.2022" Code="4">
+<Buy>8292,18</Buy>
+<Sell>8292,18</Sell>
+</Record>
+<Record Date="19.03.2022" Code="1">
+<Buy>6460,03</Buy>
+<Sell>6460,03</Sell>
+</Record>
+<Record Date="19.03.2022" Code="2">
+<Buy>84,69</Buy>
+<Sell>84,69</Sell>
+</Record>
+<Record Date="19.03.2022" Code="3">
+<Buy>3459,12</Buy>
+<Sell>3459,12</Sell>
+</Record>
+<Record Date="19.03.2022" Code="4">
+<Buy>8592,65</Buy>
+<Sell>8592,65</Sell>
 </Record>
 </Metall>
