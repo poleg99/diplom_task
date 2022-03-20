@@ -46,9 +46,12 @@ class Ping(Resource):
       return response
 
 class Update(Resource):
+    def get(self):
+        return 'OK'
+
     def post(self):
         resp = requests.get(url,timeout=3,headers=headers)
-
+        print (resp.status_code)
         if resp.status_code == requests.codes.ok:
             root = etree.fromstring(resp.content)
 
@@ -66,7 +69,7 @@ class Update(Resource):
                         if elem.tag == "Sell":
                             sell = elem.text
 
-                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
+#                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
                 if conn.is_connected():
                     cursor = conn.cursor()
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
@@ -81,7 +84,7 @@ class Update(Resource):
                 jsonify({"message": "Failed to upload xml to DATABASE. Error code="+ str(resp.status_code)}, 500))
             response.headers["Content-Type"] = "application/json"
             return response
-#            return(jsonify("Failed to upload xml. Error code="+ str(resp.status_code)))
+
 class Metals(Resource):
     def get(self):
         if conn.is_connected():

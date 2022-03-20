@@ -10,6 +10,9 @@ from flask import Flask, render_template
 app = Flask(__name__)
 api = Api(app)
 
+url_back_get="http://localhost:8000/metals"
+url_back_update="http://localhost:8000/update"
+
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}, 404))
@@ -27,19 +30,22 @@ def index():
 
 @app.route('/metals', methods=['GET'])
 def getdata_back():
-    response = requests.get("http://localhost:8000/metals")
-    jresponse = response.text
-    data = json.loads(jresponse)
+    response = requests.get(url_back_get, timeout=3)
+    if response.status_code == requests.codes.ok:
+      jresponse = response.text
+      data = json.loads(jresponse)
+      return render_template('metals.html',title='Metals Table Data', data=data)
+    else:
+      response = make_response(
+                    jsonify({"message": "Failed to get data from backend. Error code ="+ str(response.status_code)}, 500))
+      response.headers["Content-Type"] = "application/json"
+      return response
 
-    return render_template('metals.html',title='Metals Table Data', data=data)
-
-@app.route('/update', methods=['POST'])
+@app.route('/update', methods=['GET','POST'])
 def update_data():
-    response = requests.get("http://localhost:8000/update")
-    jresponse = response.text
-    data = json.loads(jresponse)
+    response = requests.post(url_back_update, timeout=10)
 
-    return data
+    return
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3000)
