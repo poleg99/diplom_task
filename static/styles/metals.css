@@ -11,3 +11,16 @@ h2 {
     text-align: center;
     padding: 10px;
 }
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+th {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+td {
+    text-align: center;
+  }

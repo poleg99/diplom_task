@@ -35,7 +35,7 @@ def getdata_back():
       columns = ['dt', 'buy', 'sell', 'name']
       df = pd.DataFrame(eval(data), columns=columns)
       table = df.to_html(index=False)
-      print(table)
+#      print(table)
 
       return render_template('metals.html',title='Metals Table Data', table=table)
 
