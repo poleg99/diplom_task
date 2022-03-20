@@ -43,9 +43,6 @@ class Ping(Resource):
         return 'pong'
 
 class Update(Resource):
-    def get(self):
-        return 'OK'
-
     def post(self):
         resp = requests.get(url,timeout=3,headers=headers)
         print (resp.status_code)
@@ -89,7 +86,8 @@ class Metals(Resource):
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata)
             result = cursor.fetchall()
-            return(f"json: {json.dumps(result, default=str)}")
+            return(json.dumps(result, default=str))
+#            return(f"json: {json.dumps(result, default=str)}")
 
 
 api.add_resource(Metals, '/metals')  # add endpoints

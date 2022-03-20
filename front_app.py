@@ -2,6 +2,7 @@ import re, os
 import requests
 import datetime
 import json
+import json2table
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from flask import Flask, jsonify, make_response, url_for, request
@@ -15,7 +16,7 @@ url_back_update="http://localhost:8000/update"
 
 @app.errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({'error': 'Not found'}, 404))
+    return render_template('index.html',title='Metals Table Data', data="Page not found - 404 error")
 
 @app.route('/ping')
 def ping():
@@ -31,11 +32,12 @@ def getdata_back():
     if response.status_code == requests.codes.ok:
       jresponse = response.text
       data = json.loads(jresponse)
-      return render_template('metals.html',title='Metals Table Data', data=data)
+
+      return render_template('index.html',title='Metals Table Data', data=data)
     else:
       response = make_response(
                     jsonify({"message": "Failed to get data from backend. Error code ="+ str(response.status_code)}, 500))
-      response.headers["Content-Type"] = "application/json"
+      response.headers["Content-Type"] = 'application/json;charset=UTF-8'
       return response
 
 @app.route('/update', methods=['GET','POST'])
