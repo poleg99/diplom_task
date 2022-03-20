@@ -1,11 +1,14 @@
-{% extends "index.html" %}
-{% block content %}
-<table>
-  {%- for item in range(len(data)) -%}
-  <tr>
-      <td>{{ data[item] }}</td>
-  </tr>
-  {%- endfor -%}
-</table>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/metals.css') }}" type="text/css">
+    <title>Metals price data</title>
+</head>
+  <body>
+    <h2>On this page you could find metals price data from CBR.RU xml</h2><br>
+    <div>
+      {{ table| safe }}
+    </div>
+  </body>
 </html>
