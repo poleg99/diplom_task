@@ -2,6 +2,7 @@ import re, os
 import requests
 import datetime
 import json
+import ast
 import json2table
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
@@ -31,10 +32,17 @@ def getdata_back():
     response = requests.get(url_back_get, timeout=3)
     if response.status_code == requests.codes.ok:
       data = json.loads(response.text)
-      print(data)
-      print(type(data))
+      res = ast.literal_eval(data)
+      dictOfWords = { i : res[i] for i in range(0, len(res) ) }
+#      print(data)
+#      print(type(data))
+#      print(type(res))
+#      print(type(dictOfWords))
+      for x in range(len(dictOfWords)):
+        print(dictOfWords[x])
+
 #      fields = data[0].keys() if len(data) > 0 else []
-      return render_template('metals.html',title='Metals Table Data', data=data)
+      return render_template('metals.html',title='Metals Table Data', data=dictOfWords)
 
     else:
       return render_template('index.html',title='Metals Table Data', error="Failed to get data from backend. Error code = "+ str(response.status_code))
