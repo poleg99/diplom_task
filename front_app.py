@@ -27,8 +27,11 @@ def index():
 
 @app.route('/metals', methods=['GET'])
 def getdata_back():
-    response = requests.get('http://localhost:8000/metals')
-    return response
+    response = requests.get("http://localhost:8000/metals")
+    jresponse = response.text
+    data = json.loads(jresponse)
+
+    return render_template('metals.html',data=data)
 #    return render_template('metals.html', title='Metals Table',metals=response)
 
 if __name__ == '__main__':

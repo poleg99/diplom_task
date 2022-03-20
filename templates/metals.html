@@ -5,9 +5,9 @@
     <title>Metals price data</title>
 </head>
 {% block content %}
+  {{data}}
   <table id="data" class="table table-striped">
     <thead
-    metals
       <tr>
         <th>Date</th>
         <th>Buy</th>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for x in metals %}
+      {% for x in data %}
         <tr>
           <td>{{ x.dt }}</td>
           <td>{{ x.buy }}</td>
