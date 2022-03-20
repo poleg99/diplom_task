@@ -34,6 +34,10 @@ headers = {'User-Agent': 'Mozilla',
            'Content-Type': 'application/xml; charset=windows-1251',
            'content-Encoding': 'gzip'}
 
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}, 404))
+
 class Ping(Resource):
     def get(self):
       response = make_response(
@@ -78,7 +82,11 @@ class Metals(Resource):
                     conn.commit()
                     return(jsonify("Data inserted successfully"))
         else:
-            return(jsonify("Failed to upload xml. Error code="+ str(resp.status_code)))
+            response = make_response(
+                jsonify({"message": "Failed to upload xml to DATABASE. Error code="+ str(resp.status_code)}, 500))
+            response.headers["Content-Type"] = "application/json"
+            return response
+#            return(jsonify("Failed to upload xml. Error code="+ str(resp.status_code)))
 
 api.add_resource(Metals, '/metals')  # add endpoints
 api.add_resource(Ping, '/ping')  # add endpoints
