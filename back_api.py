@@ -6,9 +6,8 @@ import json
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
 from decimal import Decimal
-from flask import Flask
 from flask_restful import Resource, Api, reqparse
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response, url_for, request
 
 app = Flask(__name__)
 api = Api(app)
@@ -37,7 +36,10 @@ headers = {'User-Agent': 'Mozilla',
 
 class Ping(Resource):
     def get(self):
-        return(jsonify("pong"))
+      response = make_response(
+            jsonify({"message": "pong"}, 200))
+      response.headers["Content-Type"] = "application/json"
+      return response
 
 class Metals(Resource):
     def get(self):
@@ -74,9 +76,9 @@ class Metals(Resource):
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                     cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
                     conn.commit()
-                    print("Data inserted successfully.")
+                    return(jsonify("Data inserted successfully"))
         else:
-            print('Failed to upload xml. Error code=' + str(resp.status_code))
+            return(jsonify("Failed to upload xml. Error code="+ str(resp.status_code)))
 
 api.add_resource(Metals, '/metals')  # add endpoints
 api.add_resource(Ping, '/ping')  # add endpoints
