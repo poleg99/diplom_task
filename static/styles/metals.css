@@ -12,6 +12,12 @@ h2 {
     padding: 10px;
 }
 
+h3 {
+    color: blue;
+    text-align: left;
+    padding: 8px;
+}
+
 table {
   border-collapse: collapse;
   width: 70%;

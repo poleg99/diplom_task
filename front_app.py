@@ -35,17 +35,15 @@ def getdata_back():
       columns = ['dt', 'buy', 'sell', 'name']
       df = pd.DataFrame(eval(data), columns=columns)
       table = df.to_html(index=False)
-#      print(table)
-
       return render_template('metals.html',title='Metals Table Data', table=table)
-
     else:
       return render_template('index.html',title='Metals Table Data', error="Failed to get data from backend. Error code = "+ str(response.status_code))
 
 @app.route('/update', methods=['GET','POST'])
 def update_data():
     response = requests.post(url_back_update, timeout=10)
-    return render_template('index.html',title='Metals Table Data', error=response.json())
+    if response.status_code == requests.codes.ok:
+      return render_template('index.html',title='Metals Table Data', error=response.json())
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3000)

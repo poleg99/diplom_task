@@ -82,9 +82,7 @@ class Metals(Resource):
             cursor.execute(metalsdata)
             result = cursor.fetchall()
             cursor.close
-#            return(result)
             return(json.dumps(result, default=str))
-#            return(f"json: {json.dumps(result, default=str)}")
 
 
 api.add_resource(Metals, '/metals')  # add endpoints
