@@ -1,4 +1,5 @@
-
+infra/
+mysql/
 node_modules
 /.pnp
 .pnp.js
