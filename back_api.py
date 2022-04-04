@@ -84,10 +84,21 @@ class Metals(Resource):
             cursor.close
             return(json.dumps(result, default=str))
 
+class Filter(Resource):
+    def get(self):
+        metals_name = request.args.get('metal')
+        if conn.is_connected():
+            metalsdata = "SELECT * from metalsdb.metalls_v where name = %s"
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute(metalsdata,[metals_name])
+            result = cursor.fetchall()
+            cursor.close
+            return(json.dumps(result, default=str))
 
 api.add_resource(Metals, '/metals')  # add endpoints
 api.add_resource(Update, '/update')  # add endpoints
 api.add_resource(Ping, '/ping')  # add endpoints
+api.add_resource(Filter, '/filter')  # add endpoints
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000)

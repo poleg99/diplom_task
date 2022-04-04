@@ -13,6 +13,7 @@ api = Api(app)
 
 url_back_get="http://localhost:8000/metals"
 url_back_update="http://localhost:8000/update"
+url_back_filter="http://localhost:8000/filter"
 
 
 @app.errorhandler(404)
@@ -35,9 +36,26 @@ def getdata_back():
       columns = ['dt', 'buy', 'sell', 'name']
       df = pd.DataFrame(eval(data), columns=columns)
       table = df.to_html(index=False)
-      return render_template('metals.html',title='Metals Table Data', table=table)
+      return render_template('index.html',title='Metals Table Data', table=table)
     else:
       return render_template('index.html',title='Metals Table Data', error="Failed to get data from backend. Error code = "+ str(response.status_code))
+
+@app.route('/filter', methods=['GET'])
+def filterdata_back():
+    metals_name = request.args.get('metal')
+    print(metals_name)
+    url = url_back_filter+"?name="+metals_name
+    print(url)
+    response = requests.get(url_back_filter+"?metal="+metals_name, timeout=3)
+    if response.status_code == requests.codes.ok:
+      data = response.json()
+      columns = ['dt', 'buy', 'sell', 'name']
+      df = pd.DataFrame(eval(data), columns=columns)
+      table = df.to_html(index=False)
+      return render_template('index.html',title='Metals Table Data', table=table)
+    else:
+      return render_template('index.html',title='Metals Table Data', error="Failed to get data from backend. Error code = "+ str(response.status_code))
+
 
 @app.route('/update', methods=['GET','POST'])
 def update_data():

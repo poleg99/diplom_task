@@ -35,3 +35,31 @@ th, td {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 tr:hover {background-color: #04AA6D;}
+
+.myDiv {
+  border: 5px;
+  text-align: left;
+}
+
+input[type=text] {
+  border: 2px solid #4CAF50;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 4px;
+  width: 18%;
+}
+
+.button {
+  background-color: white;
+  font-size: 14px;
+  color: black;
+  width: 18%;
+  float: left;
+  padding: 12px 28px;
+  border: 2px solid #4CAF50; /* Green */
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
