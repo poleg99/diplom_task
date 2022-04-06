@@ -3,7 +3,6 @@ import requests
 import mysql.connector
 import datetime
 import json
-from waitress import serve
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
 from decimal import Decimal
@@ -104,5 +103,5 @@ api.add_resource(Filter, '/filter')  # add endpoints
 if __name__ == '__main__':
 #    from waitress import serve
 #    serve(app, host="0.0.0.0", port=8000)
-    port = int(os.environ.get('PORT', 8000))
-    app.run(host='0.0.0.0', port=port)
+#    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port='8000')
