@@ -4,16 +4,17 @@ import datetime
 import json
 import pandas as pd
 from flask import Flask
+from waitress import serve
 from flask_restful import Resource, Api, reqparse
-from flask import Flask, jsonify, make_response, url_for, request
-from flask import Flask, render_template
+from flask import Flask, jsonify, request, render_template
+from flask import Flask
 
 app = Flask(__name__)
 api = Api(app)
 
-url_back_get="http://localhost:8000/metals"
-url_back_update="http://localhost:8000/update"
-url_back_filter="http://localhost:8000/filter"
+url_back_get="http://backbox:8000/metals"
+url_back_update="http://backbox:8000/update"
+url_back_filter="http://backbox:8000/filter"
 
 
 @app.errorhandler(404)
@@ -64,4 +65,5 @@ def update_data():
       return render_template('index.html',title='Metals Table Data', error=response.json())
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=3000)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(host='0.0.0.0', port=port)

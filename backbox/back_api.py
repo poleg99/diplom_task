@@ -3,6 +3,7 @@ import requests
 import mysql.connector
 import datetime
 import json
+from waitress import serve
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
 from decimal import Decimal
@@ -14,14 +15,14 @@ api = Api(app)
 
 conn = mysql.connector.connect(user='root',
                                password='pass',
-                               host='localhost',
+                               host='mysql',
                                database='metalsdb',
                                auth_plugin='mysql_native_password')
 
 if conn:
-    print ("Connected Successfully")
+    print ("Database connected Successfully")
 else:
-    print ("Connection Not Established")
+    print ("Database connection Not Established")
 
 #url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
 # as CBR add captcha for it's site, I created CBR emulator
@@ -101,4 +102,7 @@ api.add_resource(Ping, '/ping')  # add endpoints
 api.add_resource(Filter, '/filter')  # add endpoints
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8000)
+#    from waitress import serve
+#    serve(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)
