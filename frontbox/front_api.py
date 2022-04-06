@@ -11,9 +11,9 @@ from flask import Flask
 app = Flask(__name__)
 api = Api(app)
 
-url_back_get=   "http://backbox:8000/metals"
-url_back_update="http://backbox:8000/update"
-url_back_filter="http://backbox:8000/filter"
+url_back_get=   "http://localhost:8000/metals"
+url_back_update="http://localhost:8000/update"
+url_back_filter="http://localhost:8000/filter"
 
 
 @app.errorhandler(404)

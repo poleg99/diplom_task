@@ -6,22 +6,22 @@ import json
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
 from decimal import Decimal
+from mysql.connector import errorcode
 from flask_restful import Resource, Api, reqparse
 from flask import Flask, jsonify, make_response, url_for, request
 
 app = Flask(__name__)
 api = Api(app)
 
-conn = mysql.connector.connect(user='root',
-                               password='pass',
-                               host='mysql',
-                               database='metalsdb',
-                               auth_plugin='mysql_native_password')
-
-if conn:
-    print ("Database connected Successfully")
-else:
-    print ("Database connection Not Established")
+config = {
+  'user': 'root',
+  'password': 'pass',
+  'host': '127.0.0.1',
+  'database': 'metalsdb',
+  'raise_on_warnings': True,
+  'auth_plugin': 'mysql_native_password',
+  'pool_size': 31
+}
 
 #url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
 # as CBR add captcha for it's site, I created CBR emulator
@@ -45,6 +45,8 @@ class Ping(Resource):
 class Update(Resource):
     def post(self):
         resp = requests.get(url,timeout=3,headers=headers)
+#        print (resp.status_code)
+        conn = mysql.connector.connect(**config)
         print (resp.status_code)
         if resp.status_code == requests.codes.ok:
             root = etree.fromstring(resp.content)
@@ -76,24 +78,42 @@ class Update(Resource):
 
 class Metals(Resource):
     def get(self):
-        if conn.is_connected():
+        try:
+         conn = mysql.connector.connect(**config)
+         if conn:
             metalsdata = "SELECT * from metalsdb.metalls_v"
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata)
             result = cursor.fetchall()
             cursor.close
             return(json.dumps(result, default=str))
+        except mysql.connector.Error as err:
+          if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+          elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+          else:
+            print(err)
 
 class Filter(Resource):
     def get(self):
         metals_name = request.args.get('metal')
-        if conn.is_connected():
+        try:
+         conn = mysql.connector.connect(**config)
+         if conn:
             metalsdata = "SELECT * from metalsdb.metalls_v where name = %s"
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata,[metals_name])
             result = cursor.fetchall()
             cursor.close
             return(json.dumps(result, default=str))
+        except mysql.connector.Error as err:
+          if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+          elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+          else:
+            print(err)
 
 api.add_resource(Metals, '/metals')  # add endpoints
 api.add_resource(Update, '/update')  # add endpoints
