@@ -16,11 +16,11 @@ api = Api(app)
 config = {
   'user': 'root',
   'password': 'pass',
-  'host': '127.0.0.1',
+  'host': 'mysql',
   'database': 'metalsdb',
   'raise_on_warnings': True,
   'auth_plugin': 'mysql_native_password',
-  'pool_size': 31
+  'autocommit': True
 }
 
 #url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
@@ -70,9 +70,10 @@ class Update(Resource):
                     cursor = conn.cursor()
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                     cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
-                    conn.commit()
-            cursor.close
+#                    conn.commit()
             return("Data was uploaded to Database")
+            cursor.close
+            conn.close
         else:
             return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
 
@@ -87,6 +88,7 @@ class Metals(Resource):
             result = cursor.fetchall()
             cursor.close
             return(json.dumps(result, default=str))
+         conn.close
         except mysql.connector.Error as err:
           if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
@@ -107,6 +109,7 @@ class Filter(Resource):
             result = cursor.fetchall()
             cursor.close
             return(json.dumps(result, default=str))
+         conn.close
         except mysql.connector.Error as err:
           if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
