@@ -71,9 +71,9 @@ class Update(Resource):
                     metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                     cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
 #                    conn.commit()
-            return("Data was uploaded to Database")
             cursor.close
             conn.close
+            return("Data was uploaded to Database")
         else:
             return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
 
@@ -87,8 +87,8 @@ class Metals(Resource):
             cursor.execute(metalsdata)
             result = cursor.fetchall()
             cursor.close
+            conn.close
             return(json.dumps(result, default=str))
-         conn.close
         except mysql.connector.Error as err:
           if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
@@ -108,8 +108,8 @@ class Filter(Resource):
             cursor.execute(metalsdata,[metals_name])
             result = cursor.fetchall()
             cursor.close
+            conn.close
             return(json.dumps(result, default=str))
-         conn.close
         except mysql.connector.Error as err:
           if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
