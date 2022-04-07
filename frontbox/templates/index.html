@@ -6,21 +6,19 @@
     <title>Metals price data</title>
 </head>
 <body>
+  <div class="form-center">
+    <form  method="GET" action="/metals">
+      <button class="button" type="metal">Get metals data</button>
+    </form>
 
-  <form method="GET" action="/metals">
-    <button class="button" type="metal">Get metals data</button>
-  </form>
-
-  <form method="PUT" action="/update">
-    <button class="button" type="metal">Update metals data</button>
-  </form>
-
-  <form method="GET" action="/filter">
-    <button class="button" type="metal">Filter metals data by name</button>
-    <input type="text" value="gold" name="metal">
-  </form>
-
-
+    <form method="PUT" action="/update">
+      <button class="button" type="metal">Update metals data</button>
+    </form>
+  </div>
+    <form method="GET" action="/filter">
+      <button class="button" type="metal">Filter metals by name</button>
+      <input type="text" value="gold" name="metal">
+    </form>
   <h2>On this page you could find metals price data from CBR.RU xml</h2>
   <br><h3>{{ error }}{{ healthcheck }}</h3>
 

@@ -20,7 +20,7 @@ h3 {
 
 table {
   border-collapse: collapse;
-  width: 70%;
+  width: 60%;
 }
 
 th {
@@ -46,20 +46,26 @@ input[type=text] {
   font-size: 14px;
   padding: 12px 28px;
   border-radius: 4px;
-  width: 18%;
+  width:20%;
 }
 
 .button {
   background-color: white;
   font-size: 14px;
   color: black;
-  width: 18%;
   float: left;
   padding: 12px 28px;
+  width:20%;
   border: 2px solid #4CAF50; /* Green */
+  border-radius: 4px;
 }
 
 .button:hover {
   background-color: #4CAF50; /* Green */
   color: white;
+}
+
+.form-center {
+  width:80%;
+  margin: 0 auto;
 }
