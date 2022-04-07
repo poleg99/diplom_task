@@ -16,7 +16,7 @@ api = Api(app)
 config = {
   'user': 'root',
   'password': 'pass',
-  'host': 'mysql',
+  'host': '172.17.0.3',
   'database': 'metalsdb',
   'raise_on_warnings': True,
   'auth_plugin': 'mysql_native_password',
@@ -44,38 +44,56 @@ class Ping(Resource):
 
 class Update(Resource):
     def post(self):
-        resp = requests.get(url,timeout=3,headers=headers)
-#        print (resp.status_code)
-        conn = mysql.connector.connect(**config)
-        print (resp.status_code)
-        if resp.status_code == requests.codes.ok:
-            root = etree.fromstring(resp.content)
+        try:
 
-            for child in root:
-                dt = child.attrib.get('Date')
-                code = child.attrib.get('Code')
+          resp = requests.get(url,timeout=3,headers=headers)
+          resp.raise_for_status()
+          if resp.status_code == requests.codes.ok:
+              conn = mysql.connector.connect(**config)
+              root = etree.fromstring(resp.content)
 
-                for elem in child.getchildren():
-                    if not elem.text:
-                        text = "None"
-                    else:
-                        text = elem.text
-                        if elem.tag =="Buy":
-                            buy = elem.text
-                        if elem.tag == "Sell":
-                            sell = elem.text
+              for child in root:
+                  dt = child.attrib.get('Date')
+                  code = child.attrib.get('Code')
+
+                  for elem in child.getchildren():
+                      if not elem.text:
+                          text = "None"
+                      else:
+                          text = elem.text
+                          if elem.tag =="Buy":
+                              buy = elem.text
+                          if elem.tag == "Sell":
+                              sell = elem.text
 
 #                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
-                if conn.is_connected():
-                    cursor = conn.cursor()
-                    metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
-                    cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
+                  if conn.is_connected():
+                      cursor = conn.cursor()
+                      metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
+                      cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
 #                    conn.commit()
-            cursor.close
-            conn.close
-            return("Data was uploaded to Database")
-        else:
-            return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
+              cursor.close
+              conn.close
+              return("Data was uploaded to Database")
+          else:
+              return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
+
+        except requests.exceptions.RequestException as err:
+          return("Failed to upload xml file to DATABASE. Error code = "+ str(err))
+        except requests.exceptions.HTTPError as errh:
+          return("Failed to upload xml file to DATABASE. Error code = "+ str(errh))
+        except requests.exceptions.ConnectionError as errc:
+          return("Failed to upload xml file to DATABASE. Error code = "+ str(errc))
+        except requests.exceptions.Timeout as errt:
+          return("Failed to upload xml file to DATABASE. Error code = "+ str(errt))
+#        try:
+#          resp = requests.get(url,timeout=3,headers=headers)
+#        except resp.status_code:
+#          if resp.status_code != requests.codes.ok:
+#            return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
+#        print (resp.status_code)
+#        print (resp.status_code)
+
 
 class Metals(Resource):
     def get(self):
