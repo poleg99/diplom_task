@@ -22,5 +22,3 @@ yarn-debug.log*
 yarn-error.log*
 __pycache__
 for_docker
-getdata.py
-server_api.py
