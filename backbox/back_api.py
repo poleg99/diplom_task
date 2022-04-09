@@ -3,6 +3,7 @@ import requests
 import mysql.connector
 import datetime
 import json
+from flask_migrate import Migrate
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
 from decimal import Decimal
@@ -13,19 +14,31 @@ from flask import Flask, jsonify, make_response, url_for, request
 app = Flask(__name__)
 api = Api(app)
 
+db_user = os.getenv('db-user-var')
+db_userpass = os.getenv('db-userpass-var')
+db_host = os.getenv('db-host-var')
+db_name= os.getenv('db-name-var')
+back_port = int(os.environ.get('back-port-var',8000))
+cbr_url= str(os.getenv('cbr-url-var'))
+
 config = {
-  'user': 'root',
-  'password': 'pass',
-  'host': '172.17.0.3',
-  'database': 'metalsdb',
+  'user': db_user,
+  'password': db_userpass,
+  'host': db_host,
+  'database': db_name,
   'raise_on_warnings': True,
   'auth_plugin': 'mysql_native_password',
   'autocommit': True
 }
 
+print(config)
+
 #url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
 # as CBR add captcha for it's site, I created CBR emulator
-url = "http://cbr.example.com/metals.xml"
+# url = "http://172.17.0.2/metals.xml"
+url = cbr_url
+
+print(url)
 
 headers = {'User-Agent': 'Mozilla',
            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -71,7 +84,6 @@ class Update(Resource):
                       cursor = conn.cursor()
                       metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
                       cursor.execute(metalsdata, (dt, code, float(buy.replace(',','.')), float(sell.replace(',','.'))))
-#                    conn.commit()
               cursor.close
               conn.close
               return("Data was uploaded to Database")
@@ -86,14 +98,6 @@ class Update(Resource):
           return("Failed to upload xml file to DATABASE. Error code = "+ str(errc))
         except requests.exceptions.Timeout as errt:
           return("Failed to upload xml file to DATABASE. Error code = "+ str(errt))
-#        try:
-#          resp = requests.get(url,timeout=3,headers=headers)
-#        except resp.status_code:
-#          if resp.status_code != requests.codes.ok:
-#            return("Failed to upload xml file to DATABASE. Error code = "+ str(resp.status_code))
-#        print (resp.status_code)
-#        print (resp.status_code)
-
 
 class Metals(Resource):
     def get(self):
@@ -145,4 +149,4 @@ if __name__ == '__main__':
 #    from waitress import serve
 #    serve(app, host="0.0.0.0", port=8000)
 #    port = int(os.environ.get('PORT', 8000))
-    app.run(host='0.0.0.0', port='8000')
+    app.run(host='0.0.0.0', port=back_port)

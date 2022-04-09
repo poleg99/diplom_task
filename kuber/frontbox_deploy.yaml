@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: frontbox
+  name: frontbox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontbox
+  template:
+    metadata:
+      labels:
+        app: frontbox
+    spec:
+     containers:
+     - image: frontbox/opavlov:v0.1
+       name: frontbox
+       ports:
+       - containerPort: 3000
+         name: http
+       livenessProbe:
+        httpGet:
+          path: /ping
+          port: 3000
+        initialDelaySeconds: 10
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 90
+        failureThreshold: 6
+       env:
+        - name: front_port
+          valueFrom:
+           secretKeyRef:
+            name: fb-secrets
+            key: front-port-var
+        - name: url_back
+          valueFrom:
+           secretKeyRef:
+            name: fb-secrets
+            key: url-back

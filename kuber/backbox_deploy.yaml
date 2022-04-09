@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: backbox
+  name: backbox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backbox
+  template:
+    metadata:
+      labels:
+        app: backbox
+    spec:
+     containers:
+     - image: backbox/opavlov:v0.1
+       name: backbox
+       ports:
+       - containerPort: 8000
+         name: http
+       livenessProbe:
+        httpGet:
+          path: /ping
+          port: 8000
+        initialDelaySeconds: 10
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 90
+        failureThreshold: 6
+       env:
+        - name: db_user
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: db-user-var
+        - name: db_userpass
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: db-userpass-var
+        - name: db_host
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: db-host-var
+        - name: db_name
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: db-name-var
+        - name: back_port
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: back-port-var
+        - name: cbr_url
+          valueFrom:
+           secretKeyRef:
+            name: bb-secrets
+            key: cbr-url-var

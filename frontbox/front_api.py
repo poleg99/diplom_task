@@ -11,10 +11,19 @@ from flask import Flask
 app = Flask(__name__)
 api = Api(app)
 
-url_back_get=   "http://backbox:8000/metals"
-url_back_update="http://backbox:8000/update"
-url_back_filter="http://backbox:8000/filter"
+front_port = os.getenv('front-port-var')
+url_back = os.getenv('url-back')
 
+print(front_port)
+print(url_back)
+
+url_back_get=   "http://"+url_back+"/metals"
+url_back_update=   "http://"+url_back+"/update"
+url_back_filter=   "http://"+url_back+"/filter"
+#url_back_update="http://backbox:8000/update"
+#url_back_filter="http://backbox:8000/filter"
+
+print(url_back_get)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -22,7 +31,7 @@ def not_found(error):
 
 @app.route('/ping')
 def ping():
-    return render_template('index.html',title='Metals Table Data', healthcheck="pong")
+    return 'pong'
 
 @app.route('/')
 def index():
@@ -64,4 +73,4 @@ def update_data():
       return render_template('index.html',title='Metals Table Data', error=response.json())
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='3000')
+    app.run(host='0.0.0.0', port=front_port)
