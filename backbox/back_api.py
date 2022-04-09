@@ -14,12 +14,12 @@ from flask import Flask, jsonify, make_response, url_for, request
 app = Flask(__name__)
 api = Api(app)
 
-db_user = os.getenv('db-user-var')
-db_userpass = os.getenv('db-userpass-var')
-db_host = os.getenv('db-host-var')
-db_name= os.getenv('db-name-var')
-back_port = int(os.environ.get('back-port-var',8000))
-cbr_url= str(os.getenv('cbr-url-var'))
+db_user = os.getenv('db_user')
+db_userpass = os.getenv('db_userpass')
+db_host = os.getenv('db_host')
+db_name= os.getenv('db_name')
+back_port = int(os.environ.get('back_port'))
+cbr_url= str(os.getenv('cbr_url'))
 
 config = {
   'user': db_user,
