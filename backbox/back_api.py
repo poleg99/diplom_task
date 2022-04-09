@@ -31,14 +31,14 @@ config = {
   'autocommit': True
 }
 
-print(config)
+#print(config)
 
 #url = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1=01/03/2022&date_req2=02/03/2022"
 # as CBR add captcha for it's site, I created CBR emulator
 # url = "http://172.17.0.2/metals.xml"
 url = cbr_url
 
-print(url)
+#print(url)
 
 headers = {'User-Agent': 'Mozilla',
            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',

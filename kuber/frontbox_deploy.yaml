@@ -40,8 +40,3 @@ spec:
            secretKeyRef:
             name: fb-secrets
             key: url-back
-        - name: back_port
-          valueFrom:
-           secretKeyRef:
-            name: fb-secrets
-            key: back-port-var

@@ -12,19 +12,18 @@ app = Flask(__name__)
 api = Api(app)
 
 front_port = os.environ.get('front_port')
-back_port = os.environ.get('back_port')
 url_back = os.getenv('url_back')
 
-print(front_port)
-print(url_back)
+#print(front_port)
+#print(url_back)
 
-url_back_get=   "http://"+url_back+":"+back_port+"/metals"
-url_back_update=   "http://"+url_back+":"+back_port+"/update"
-url_back_filter=   "http://"+url_back+":"+back_port+"/filter"
+url_back_get=   "http://"+url_back+"/metals"
+url_back_update=   "http://"+url_back+"/update"
+url_back_filter=   "http://"+url_back+"/filter"
 #url_back_update="http://backbox:8000/update"
 #url_back_filter="http://backbox:8000/filter"
 
-print(url_back_get)
+#print(url_back_get)
 
 @app.errorhandler(404)
 def not_found(error):
