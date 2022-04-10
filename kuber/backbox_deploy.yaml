@@ -5,7 +5,12 @@ metadata:
     run: backbox
   name: backbox-deployment
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+    maxSurge: 3
+    maxUnavailable: 1
   selector:
     matchLabels:
       app: backbox
