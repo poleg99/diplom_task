@@ -32,3 +32,8 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = var.k8s_name
 }
+
+output "rds_endpoint" {
+  description = "db rds endpoint"
+  value       = aws_db_instance.mysql.endpoint
+}
