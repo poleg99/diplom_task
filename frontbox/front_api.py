@@ -53,9 +53,9 @@ def getdata_back():
 @app.route('/filter', methods=['GET'])
 def filterdata_back():
     metals_name = request.args.get('metal')
-    print(metals_name)
+#    print(metals_name)
     url = url_back_filter+"?name="+metals_name
-    print(url)
+#    print(url)
     response = requests.get(url_back_filter+"?metal="+metals_name, timeout=3)
     if response.status_code == requests.codes.ok:
       data = response.json()
