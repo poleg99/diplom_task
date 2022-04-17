@@ -23,7 +23,6 @@ back_port = os.getenv('back_port', 8000)
 cbr_url= str(os.getenv('cbr_url'))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'+db_user+':'+db_userpass+'@'+db_host+'/'+db_name
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Lsadsafsa@172.17.0.2/metalsdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
