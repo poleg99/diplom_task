@@ -6,6 +6,9 @@ node_modules
 b_api.py
 /mysql
 /IaC
+IaC/
+IaC
+mysql
 
 # testing
 /coverage
