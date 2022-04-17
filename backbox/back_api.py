@@ -14,15 +14,35 @@ from flask import Flask, jsonify, make_response, url_for, request
 
 app = Flask(__name__)
 api = Api(app)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 db_user = os.getenv('db_user')
 db_userpass = os.getenv('db_userpass')
 db_host = os.getenv('db_host')
 db_name= os.getenv('db_name')
-back_port = int(os.environ.get('back_port'))
+back_port = os.getenv('back_port', 8000)
 cbr_url= str(os.getenv('cbr_url'))
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'+db_user+':'+db_userpass+'@'+db_host+'/'+db_name
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Lsadsafsa@172.17.0.2/metalsdb'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+class metals_codes(db.Model):
+    __tablename__ = 'metals_codes'
+    code = db.Column(db.Integer, nullable=False, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    db.UniqueConstraint(code, name)
+
+class metals_data(db.Model):
+    __tablename__ = 'metals_data'
+    dt = db.Column(db.Date)
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.Integer,nullable=False)
+    buy = db.Column(db.Float(10,2))
+    sell = db.Column(db.Float(10,2))
+    db.UniqueConstraint(dt, code)
 
 config = {
   'user': db_user,
@@ -101,12 +121,45 @@ class Update(Resource):
         except requests.exceptions.Timeout as errt:
           return("Failed to upload xml file to DATABASE. Error code = "+ str(errt))
 
+class Prepare(Resource):
+    def post(self):
+        try:
+         conn = mysql.connector.connect(**config)
+         if conn:
+            checkcodes = "SELECT COUNT(*) FROM metals_codes"
+            cursor = conn.cursor()
+            cursor.execute(checkcodes)
+            result = cursor.fetchone()[0]
+            if not result:
+                upddata = """INSERT INTO metals_codes(code,name) VALUES ('1','gold');
+                             INSERT INTO metals_codes(code,name) VALUES ('2','silver');
+                             INSERT INTO metals_codes(code,name) VALUES ('3','platina');
+                             INSERT INTO metals_codes(code,name) VALUES ('4','palladium');"""
+                cursor.execute(upddata)
+                cursor.close
+                conn.close
+                return("Table with codes was populated to the database")
+            else:
+              conn.close
+              return("Codes are already exists in database")
+        except mysql.connector.Error as err:
+          if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+          elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+          else:
+            print(err)
+
 class Metals(Resource):
     def get(self):
         try:
          conn = mysql.connector.connect(**config)
          if conn:
-            metalsdata = "SELECT * from metalsdb.metalls_v"
+#            metalsdata = "SELECT * from metalsdb.metalls_v"
+            metalsdata =  """select md.dt AS dt, md.buy AS buy, md.sell AS sell, mc.name AS name
+                             from metals_codes mc
+                             join metals_data md
+                             where mc.code = md.code """
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata)
             result = cursor.fetchall()
@@ -127,7 +180,11 @@ class Filter(Resource):
         try:
          conn = mysql.connector.connect(**config)
          if conn:
-            metalsdata = "SELECT * from metalsdb.metalls_v where name = %s"
+#            metalsdata = "SELECT * from metalsdb.metalls_v where name = %s"
+            metalsdata =  """select md.dt AS dt, md.buy AS buy, md.sell AS sell, mc.name AS name
+                             from metals_codes mc
+                             join metals_data md
+                             where (mc.code = md.code and name = %s)"""
             cursor = conn.cursor(dictionary=True)
             cursor.execute(metalsdata,[metals_name])
             result = cursor.fetchall()
@@ -146,9 +203,7 @@ api.add_resource(Metals, '/metals')  # add endpoints
 api.add_resource(Update, '/update')  # add endpoints
 api.add_resource(Ping, '/ping')  # add endpoints
 api.add_resource(Filter, '/filter')  # add endpoints
+api.add_resource(Prepare, '/prepare')  # add endpoints
 
 if __name__ == '__main__':
-#    from waitress import serve
-#    serve(app, host="0.0.0.0", port=8000)
-#    port = int(os.environ.get('PORT', 8000))
     app.run(host='0.0.0.0', port=back_port)

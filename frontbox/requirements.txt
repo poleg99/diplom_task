@@ -15,13 +15,9 @@ itsdangerous==2.0.1
 Jinja2==3.0.2
 joblib==1.1.0
 json2table==1.1.5
-lxml==4.8.0
 MarkupSafe==2.0.1
-mysql-connector-python==8.0.28
 nltk==3.6.3
 numpy==1.22.3
-orderdict==2020.12.3
-ordereddict==1.1
 pandas==1.4.1
 pycparser==2.20
 python-dateutil==2.8.2
@@ -34,6 +30,3 @@ tabulate==0.8.9
 textblob==0.15.0
 tqdm==4.62.3
 urllib3==1.26.8
-waitress==2.1.1
-Werkzeug==2.1.1
-zipp==3.8.0

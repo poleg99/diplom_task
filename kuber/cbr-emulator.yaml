@@ -16,6 +16,6 @@ metadata:
   name: cbr-emulator
 subsets:
   - addresses:
-    - ip: 192.168.64.1
+    - ip: 192.168.88.205
     ports:
       - port: 80
