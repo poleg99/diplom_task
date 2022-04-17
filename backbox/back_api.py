@@ -3,6 +3,7 @@ import requests
 import mysql.connector
 import datetime
 import json
+from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from requests.structures import CaseInsensitiveDict
 from lxml import etree as etree
@@ -13,6 +14,8 @@ from flask import Flask, jsonify, make_response, url_for, request
 
 app = Flask(__name__)
 api = Api(app)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 db_user = os.getenv('db_user')
 db_userpass = os.getenv('db_userpass')
@@ -58,7 +61,6 @@ class Ping(Resource):
 class Update(Resource):
     def post(self):
         try:
-
           resp = requests.get(url,timeout=3,headers=headers)
           resp.raise_for_status()
           if resp.status_code == requests.codes.ok:

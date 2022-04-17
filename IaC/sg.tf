@@ -8,7 +8,7 @@ resource "aws_security_group" "worker_group_mgmt_one" {
     protocol  = "tcp"
 
     cidr_blocks = [
-      "10.0.0.0/8",
+      var.vpc_cidr,
     ]
   }
 }
@@ -38,7 +38,7 @@ resource "aws_security_group" "all_worker_mgmt" {
     protocol  = "tcp"
 
     cidr_blocks = [
-      "10.0.0.0/8",
+      var.vpc_cidr,
       "172.16.0.0/12",
       "192.168.0.0/16",
     ]
@@ -52,11 +52,12 @@ resource "aws_security_group" "db_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "port for mysql dbservers"
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    description     = "port for mysql dbservers"
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    security_groups = ["${aws_security_group.worker_group_mgmt_one.id}"]
+    cidr_blocks     = ["0.0.0.0/0"]
   }
   egress {
     description = "egress for dbservers"

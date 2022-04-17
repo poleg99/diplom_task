@@ -10,7 +10,7 @@ RUN apt-get update  && apt-get -y install curl
 
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip -r requirements.txt
 
 COPY . .
 

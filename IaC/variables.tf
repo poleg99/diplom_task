@@ -29,7 +29,7 @@ variable "server_size" {
 variable "aws_instance_type" {
   description = "EC2 type"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "tags" {
@@ -49,40 +49,61 @@ variable "vpc_cidr" {
 
 variable "public_subnet_cidrs" {
   default = [
-    "10.20.31.0/24",
-    "10.20.32.0/24",
-    "10.20.33.0/24"
+    "10.20.11.0/24",
+    "10.20.12.0/24",
+    "10.20.13.0/24"
   ]
   description = "public subnets cidr"
 }
 
 variable "private_subnet_cidrs" {
   default = [
-    "10.20.11.0/24",
-    "10.20.12.0/24",
-    "10.20.13.0/24"
+    "10.20.31.0/24",
+    "10.20.32.0/24",
+    "10.20.33.0/24"
   ]
   description = "private subnets cidr"
 }
 
 # for Mysql
-variable "db_server_size" {
+variable "db_server_size_prod" {
   description = "db type"
   type        = string
   default     = "db.t3.small"
 }
 
-variable "database_name" {
+variable "database_name_prod" {
   default     = "metalsdb"
   description = "database name"
 }
 
-variable "database_user" {
+variable "database_user_prod" {
   default     = "metalsdbuser"
   description = "database user for wordpress"
 }
 
-variable "database_password" {
+variable "database_password_prod" {
+  default     = "Passw0rd123"
+  description = "database pass for wordpress db"
+}
+
+variable "db_server_size_staging" {
+  description = "db type"
+  type        = string
+  default     = "db.t3.small"
+}
+
+variable "database_name_staging" {
+  default     = "metalsdb"
+  description = "database name"
+}
+
+variable "database_user_staging" {
+  default     = "metalsdbuser"
+  description = "database user for wordpress"
+}
+
+variable "database_password_staging" {
   default     = "Passw0rd123"
   description = "database pass for wordpress db"
 }

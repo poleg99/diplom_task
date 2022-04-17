@@ -17,9 +17,9 @@ url_back = os.getenv('url_back')
 #print(front_port)
 #print(url_back)
 
-url_back_get=   "http://"+url_back+"/metals"
-url_back_update=   "http://"+url_back+"/update"
-url_back_filter=   "http://"+url_back+"/filter"
+url_back_get=   url_back+"/metals"
+url_back_update=   url_back+"/update"
+url_back_filter=   url_back+"/filter"
 #url_back_update="http://backbox:8000/update"
 #url_back_filter="http://backbox:8000/filter"
 
@@ -42,7 +42,7 @@ def getdata_back():
     response = requests.get(url_back_get, timeout=3)
     if response.status_code == requests.codes.ok:
       data = response.json()
-      columns = ['dt', 'buy', 'sell', 'name']
+      columns = ['date', 'buy', 'sell', 'name']
       df = pd.DataFrame(eval(data), columns=columns)
       table = df.to_html(index=False)
       return render_template('index.html',title='Metals Table Data', table=table)
@@ -58,7 +58,7 @@ def filterdata_back():
     response = requests.get(url_back_filter+"?metal="+metals_name, timeout=3)
     if response.status_code == requests.codes.ok:
       data = response.json()
-      columns = ['dt', 'buy', 'sell', 'name']
+      columns = ['date', 'buy', 'sell', 'name']
       df = pd.DataFrame(eval(data), columns=columns)
       table = df.to_html(index=False)
       return render_template('index.html',title='Metals Table Data', table=table)
