@@ -4,8 +4,8 @@ node_modules
 /.pnp
 .pnp.js
 b_api.py
-mysql
-IaC
+/mysql
+/IaC
 
 # testing
 /coverage
