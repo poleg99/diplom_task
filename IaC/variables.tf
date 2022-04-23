@@ -79,12 +79,12 @@ variable "database_name_prod" {
 
 variable "database_user_prod" {
   default     = "metalsdbuser"
-  description = "database user for wordpress"
+  description = "database user for db"
 }
 
 variable "database_password_prod" {
   default     = "Passw0rd123"
-  description = "database pass for wordpress db"
+  description = "database pass for db"
 }
 
 variable "db_server_size_staging" {
@@ -100,10 +100,10 @@ variable "database_name_staging" {
 
 variable "database_user_staging" {
   default     = "metalsdbuser"
-  description = "database user for wordpress"
+  description = "database user for db"
 }
 
 variable "database_password_staging" {
   default     = "Passw0rd123"
-  description = "database pass for wordpress db"
+  description = "database pass for db"
 }
