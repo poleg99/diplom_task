@@ -20,6 +20,7 @@ resource "aws_db_instance" "mysql_staging" {
   apply_immediately       = true
   skip_final_snapshot     = true
   multi_az                = true
+  tags                    = var.tags
 }
 
 resource "aws_db_instance" "mysql_prod" {
@@ -36,4 +37,5 @@ resource "aws_db_instance" "mysql_prod" {
   apply_immediately       = true
   skip_final_snapshot     = true
   multi_az                = true
+  tags                    = var.tags
 }

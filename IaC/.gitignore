@@ -1,5 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
+kubeconfig*
+metrics-server-*
 
 .terraform
 .terraform.lock.hcl

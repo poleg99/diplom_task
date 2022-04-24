@@ -47,24 +47,6 @@ variable "vpc_cidr" {
   description = "vpc subnet id"
 }
 
-variable "public_subnet_cidrs" {
-  default = [
-    "10.20.11.0/24",
-    "10.20.12.0/24",
-    "10.20.13.0/24"
-  ]
-  description = "public subnets cidr"
-}
-
-variable "private_subnet_cidrs" {
-  default = [
-    "10.20.31.0/24",
-    "10.20.32.0/24",
-    "10.20.33.0/24"
-  ]
-  description = "private subnets cidr"
-}
-
 # for Mysql
 variable "db_server_size_prod" {
   description = "db type"
