@@ -6,6 +6,7 @@ node_modules
 b_api.py
 /mysql
 mysql
+сi-cd
 
 # testing
 /coverage
