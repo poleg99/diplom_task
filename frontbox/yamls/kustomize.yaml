@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
   - fb-service.yaml
-  - frontbox_deploy.yaml
-  - fb_secrets.yaml
+  - frontbox-deploy.yaml
+  - fb-secrets.yaml
+  - ingress.yaml
