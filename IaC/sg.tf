@@ -32,17 +32,31 @@ resource "aws_security_group" "all_worker_mgmt" {
   name_prefix = "all_worker_management"
   vpc_id      = module.vpc.vpc_id
 
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-
-    cidr_blocks = [
-      var.vpc_cidr,
-      "172.16.0.0/12",
-      "192.168.0.0/16",
-    ]
+  dynamic "ingress" {
+    for_each = ["22", "443"]
+    content {
+      description = "bunch of TCP ports for webservers"
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = [
+        var.vpc_cidr,
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+      ]
+    }
   }
+  #  ingress {
+  #    from_port = 22
+  #    to_port   = 22
+  #    protocol  = "tcp"
+
+  #    cidr_blocks = [
+  #      var.vpc_cidr,
+  #      "172.16.0.0/12",
+  #      "192.168.0.0/16",
+  #    ]
+  #  }
 }
 
 #-------------Create Security group for dbservers----------
