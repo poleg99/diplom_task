@@ -20,7 +20,7 @@ spec:
         app: frontbox
     spec:
      containers:
-     - image: frontbox/opavlov:v0.1
+     - image: registry.sdv-tech.com/epam/frontbox/frontbox:latest
        name: frontbox
        ports:
        - containerPort: 3000
@@ -45,3 +45,5 @@ spec:
            secretKeyRef:
             name: fb-secrets
             key: url-back
+     imagePullSecrets:
+     - name: argodeploy

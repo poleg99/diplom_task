@@ -20,7 +20,7 @@ spec:
         app: backbox
     spec:
      containers:
-     - image: backbox/opavlov:v0.1
+     - image: registry.sdv-tech.com/epam/backbox/backbox:latest
        name: backbox
        ports:
        - containerPort: 8000

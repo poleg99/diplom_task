@@ -33,7 +33,7 @@ resource "aws_security_group" "all_worker_mgmt" {
   vpc_id      = module.vpc.vpc_id
 
   dynamic "ingress" {
-    for_each = ["22", "443"]
+    for_each = ["22", "80", "443"]
     content {
       description = "bunch of TCP ports for webservers"
       from_port   = ingress.value
