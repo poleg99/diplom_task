@@ -6,4 +6,3 @@ resources:
   - backbox-deploy.yaml
   - bb-secrets.yaml
   - mysql-service.yaml
-  - cbr-emulator.yaml

@@ -55,7 +55,7 @@ variable "db_server_size_prod" {
 }
 
 variable "database_name_prod" {
-  default     = "metalsdb"
+  default     = "metalsdb_prod"
   description = "database name"
 }
 
@@ -76,7 +76,7 @@ variable "db_server_size_staging" {
 }
 
 variable "database_name_staging" {
-  default     = "metalsdb"
+  default     = "metalsdb_staging"
   description = "database name"
 }
 

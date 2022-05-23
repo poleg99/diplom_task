@@ -33,12 +33,12 @@ output "cluster_name" {
   value       = var.k8s_name
 }
 
-#output "rds_endpoint_prod" {
-#  description = "db rds endpoint"
-#  value       = aws_db_instance.mysql_prod.endpoint
-#}
+output "rds_endpoint_prod" {
+  description = "db rds endpoint"
+  value       = aws_db_instance.mysql_prod.endpoint
+}
 
-#output "rds_endpoint_staging" {
-#  description = "db rds endpoint"
-#  value       = aws_db_instance.mysql_staging.endpoint
-#}
+output "rds_endpoint_staging" {
+  description = "db rds endpoint"
+  value       = aws_db_instance.mysql_staging.endpoint
+}
