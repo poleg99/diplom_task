@@ -66,4 +66,4 @@ spec:
             name: bb-secrets
             key: cbr-url-var
      imagePullSecrets:
-     - name: argodeploy
+     - name: argodeploy-bb

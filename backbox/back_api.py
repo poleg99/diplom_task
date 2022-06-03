@@ -94,16 +94,16 @@ class Update(Resource):
                     code = child.attrib.get('Code')
 
                     for elem in child.getchildren():
-                        if not elem.text:
-                            text = "None"
-                        else:
-                            text = elem.text
-                            if elem.tag == "Buy":
-                                buy = elem.text
-                            if elem.tag == "Sell":
-                                sell = elem.text
+                        # if not elem.text:
+                        #     text = "None"
+                        # else:
+                        #     text = elem.text
+                        if elem.tag == "Buy":
+                            buy = elem.text
+                        if elem.tag == "Sell":
+                            sell = elem.text
 
-#                print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
+                # print(dt + "," +code +"," + buy.replace(',','.') +"," + sell.replace(',','.'))
                     if conn.is_connected():
                         cursor = conn.cursor()
                         metalsdata = """REPLACE INTO metals_data (dt,code,buy,sell) VALUES (STR_TO_DATE(%s,'%d.%m.%Y'),%s,%s,%s)"""
